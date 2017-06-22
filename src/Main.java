@@ -73,69 +73,115 @@ public class Main  {
 			public void actionPerformed(ActionEvent e) {
 				JFrame cadastro = new JFrame("Cadastro");
 				cadastro.setVisible(true);
-				cadastro.setSize(550,500);
+				cadastro.setSize(850,450);
 			
-				JPanel filho2 = new JPanel();
-				filho2.setLayout(new FlowLayout(FlowLayout.CENTER));
-				filho2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-				filho2.setBorder(BorderFactory.createTitledBorder("  ::: INFORMAÇÕES :::  "));
+				//PAINEL 2
+				JPanel filho = new JPanel();
+				filho.setLayout(new BoxLayout(filho, BoxLayout.X_AXIS));
 				//NUMERO DA NOTA
-				filho2.add(new JLabel("Nº da nota:" ));
+				filho.add(new JLabel("Nº da nota: " ));
 				JTextField codigo = new JTextField(14);
-				filho2.add(codigo);
+				filho.add(codigo);
 				//MODELO
-				filho2.add((new JLabel("Modelo: ")));
+				filho.add((new JLabel(" Modelo: ")));
 				JTextField desc = new JTextField(14);
-				filho2.add(desc);
+				filho.add(desc);
+				
+				JPanel filho2 = new JPanel();
+				filho2.setLayout(new BoxLayout(filho2, BoxLayout.Y_AXIS));
+				filho2.setLayout(new FlowLayout(FlowLayout.LEFT));
 				//NATUREZA
 				filho2.add((new JLabel("Natureza: ")));
 				JTextField natu = new JTextField(10);
 				filho2.add(natu);
 				//DATA OPERAÇÃO
-				filho2.add((new JLabel("Data Operação: ")));
+				filho2.add((new JLabel(" Data Operação: ")));
 				JTextField dataOp = new JTextField(10);
 				filho2.add(dataOp);
 				//DATA EMISSÃO
-				filho2.add((new JLabel("Data Emissão: ")));
+				filho2.add((new JLabel(" Data Emissão: ")));
 				JTextField dataEm = new JTextField(10);
 				filho2.add(dataEm);
 				
+				JPanel pai2 = new JPanel();
+				pai2.setLayout(new FlowLayout(FlowLayout.CENTER));
+				pai2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+				pai2.setBorder(BorderFactory.createTitledBorder("  ::: INFORMAÇÕES :::  "));
+				pai2.add(filho);
+				pai2.add(filho2);
+				//FIM DO PAINEL 2
+				
+				//PAINEL 3
 				JPanel filho3 = new JPanel();
-				filho3.setLayout(new FlowLayout(FlowLayout.CENTER));
-				filho3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-				filho3.setBorder(BorderFactory.createTitledBorder("  ::: DESTINATÁRIO / EMITENTE :::  "));
+				filho3.setLayout(new BoxLayout(filho3, BoxLayout.X_AXIS));
 				//CNPJ / CPF
-				filho3.add(new JLabel("CNPJ/CPF:" ));
+				filho3.add(new JLabel("CNPJ/CPF: " ));
 				JTextField CnpjCpf = new JTextField(14);
 				filho3.add(CnpjCpf);
 				//RAZÃO SOCIAL
-				filho3.add((new JLabel("Razão social/Nome: ")));
+				filho3.add((new JLabel(" Razão social/Nome: ")));
 				JTextField nome = new JTextField(14);
 				filho3.add(nome);
-				//INSC. ESTADUAL
-				filho3.add((new JLabel("Inscrição Estadual: ")));
-				JTextField inscri = new JTextField(10);
-				filho3.add(inscri);
-				//ESTADO
-				filho3.add((new JLabel("Estado: ")));
-				JTextField estado = new JTextField(10);
-				filho3.add(estado);
-				//QNT ITENS
-				filho3.add((new JLabel("Qnt. Itens: ")));
-				JTextField qnt = new JTextField(10);
-				filho3.add(qnt);
-				//VALOR
-				filho3.add((new JLabel("Valor: ")));
-				JTextField valor = new JTextField(10);
-				filho3.add(valor);
-				//BOTÃO ADD
-				filho3.add(new JButton("Adicionar"));
-				//CRIAR FUNÇÃO PARA BOTÃO
 				
+				JPanel filho4 = new JPanel();
+				filho4.setLayout(new BoxLayout(filho4, BoxLayout.Y_AXIS));
+				filho4.setLayout(new FlowLayout(FlowLayout.LEFT));
+				//INSC. ESTADUAL
+				filho4.add((new JLabel("Inscrição Estadual: ")));
+				JTextField inscri = new JTextField(10);
+				filho4.add(inscri);
+				//ESTADO
+				filho4.add((new JLabel(" Estado: ")));
+				JTextField estado = new JTextField(10);
+				filho4.add(estado);
+				//QNT ITENS
+				filho4.add((new JLabel(" Qnt. Itens: ")));
+				JTextField qnt = new JTextField(10);
+				filho4.add(qnt);
+				//VALOR
+				filho4.add((new JLabel(" Valor: ")));
+				JTextField valor = new JTextField(10);
+				filho4.add(valor);
+				
+				JPanel pai3 = new JPanel();
+				pai3.setLayout(new FlowLayout(FlowLayout.CENTER));
+				pai3.setBorder(BorderFactory.createLineBorder(Color.black));
+				pai3.setBorder(BorderFactory.createTitledBorder("  ::: DESTINATÁRIO / EMITENTE :::  "));
+				pai3.add(filho3);
+				pai3.add(filho4);
+				//FIM DO PAINEL 3
+				
+				//PAINEL 4
+				//CAMPO TEXTO
+				JPanel filho5 = new JPanel();
+				filho5.setLayout(new BoxLayout(filho5, BoxLayout.X_AXIS));
+				JTextArea text = new JTextArea(5,60);
+				filho5.add(text);
+				//BOTÃO ADD
+				JPanel filho6 = new JPanel();
+				filho6.setLayout(new BoxLayout(filho6, BoxLayout.X_AXIS));
+				JButton add = new JButton("Adicionar");
+				filho6.add(add);//CRIAR FUNÇÃO PARA BOTÃO
+				//BOTÃO DELETE
+				JButton del = new JButton("Delete");
+				filho6.add(del);//CRIAR FUNÇÃO PARA BOTÃO
+				
+				JPanel pai4 = new JPanel();
+				pai4.setLayout(new BoxLayout(pai4, BoxLayout.Y_AXIS));
+				pai4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+				pai4.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+				pai4.setBorder(BorderFactory.createTitledBorder("  ::: OBSERVAÇÕES :::  "));
+				pai4.add(filho5);
+				pai4.add(filho6);
+				// FIM DO PAINEL 4
+				
+				//PAINEL PAI
 				JPanel painel = new JPanel();
 				painel.setLayout(new BoxLayout(painel, BoxLayout.Y_AXIS));
-				painel.add(filho2);
-				painel.add(filho3);
+				painel.add(pai2);
+				painel.add(pai3);
+				painel.add(pai4);
+				
 				JButton salvar = new JButton("Salvar");
 				painel.add(salvar);
 				salvar.addActionListener(new ActionListener() {
