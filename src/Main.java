@@ -155,6 +155,7 @@ public class Main  {
 				//CAMPO TEXTO
 				JPanel filho5 = new JPanel();
 				filho5.setLayout(new BoxLayout(filho5, BoxLayout.X_AXIS));
+				filho5.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 				JTextArea text = new JTextArea(5,60);
 				filho5.add(text);
 				//BOTÃO ADD
