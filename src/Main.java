@@ -311,14 +311,55 @@ public class Main  {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				
+				JPanel filho = new JPanel();
+				filho.setLayout(new BoxLayout(filho, BoxLayout.Y_AXIS));
+				//NUMERO DA NOTA VERIFICAR SE A NOTA JÁ EXISTE
+				filho.add(new JLabel("Informe o numero da nota: " ));
+				JTextField num = new JTextField(14);
+				filho.add(num);
+				//CODIGO
+				filho.add((new JLabel(" Código do item: ")));
+				JTextField desc = new JTextField(14);
+				filho.add(desc);
+				
+				filho.add((new JLabel("Descrição: ")));
+				JTextField natu = new JTextField(14);
+				filho.add(natu);
+				//DATA OPERAÇÃO
+				filho.add((new JLabel("Preço: ")));
+				JTextField dataOp = new JTextField(5);
+				filho.add(dataOp);
+				//DATA EMISSÃO
+				filho.add((new JLabel("Quantidade: ")));
+				JTextField dataEm = new JTextField(5);
+				filho.add(dataEm);
+				
+				JPanel pai2 = new JPanel();
+				pai2.setLayout(new FlowLayout(FlowLayout.CENTER));
+				pai2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+				pai2.setBorder(BorderFactory.createTitledBorder("  ::: ITENS :::  "));
+				pai2.add(filho);
+				//FIM DO PAINEL 2
+				
+				//BOTÃO
+				JPanel filho3 = new JPanel();
+				filho3.setLayout(new BoxLayout(filho3, BoxLayout.X_AXIS));
+				JButton add = new JButton("Adicionar");
+				filho3.add(add);//CRIAR FUNÇÃO PARA BOTÃO
+				//BOTÃO VOLTAR
+				JButton volt = new JButton("Voltar");
+				filho3.add(volt);//CRIAR FUNÇÃO PARA BOTÃO
+				
 				JPanel painel = new JPanel();
 				painel.setLayout(new BoxLayout(painel, BoxLayout.Y_AXIS));
-				JTextField codigo = new JTextField();
-			
+				painel.add(pai2);
+				painel.add(filho3);
+				
 				JFrame Produtos = new JFrame("Cadastro de Produtos");
 				Produtos.setVisible(true);
-				Produtos.setSize(500,500);
-				
+				Produtos.setSize(450,300);
+				Produtos.add(painel);
 			}
 		});
 		return eMCi;
